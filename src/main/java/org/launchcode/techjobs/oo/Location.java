@@ -13,6 +13,11 @@ public class Location {
         nextId++;
     }
 
+    public Location(String avalue){
+        this();
+        this.value = avalue;
+    }
+
     // TODO: Add a constructor that takes a string as a parameter and assigns it to the 'value' field. The
     //  constructor should also call the empty constructor in order to initialize the 'id' field.
 
@@ -31,6 +36,11 @@ public class Location {
         Location location = (Location) o;
         return getId() == location.getId();
     }
+
+//    if (this == o) return true;
+//    if (!(o instanceof Employer)) return false;
+//    Employer employer = (Employer) o;
+//    return getId() == employer.getId();
 
     @Override
     public int hashCode() {
