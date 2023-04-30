@@ -16,9 +16,11 @@ import static org.junit.Assert.*;
 public class JobTest {
 
     @Test
-    public void testSettingJobID(){
+    public void testSettingJobId(){
         Job jobA = new Job();
         Job jobB = new Job();
+        System.out.println(jobA.getId());
+        System.out.println(jobB.getId());
         assertNotEquals(jobA.getId(), jobB.getId());
     }
 
@@ -62,6 +64,50 @@ public class JobTest {
 
     @Test
     public void testToStringStartsAndEndsWithNewLine(){
-        
+        Job jobF = new Job("Ditch Filler",
+                new Employer("Smooth Lands LLC"),
+                new Location("Parson, IA"),
+                new PositionType("Land Observer"),
+                new CoreCompetency("Hatred of Ditches"));
+        String jobString = jobF.toString();
+        assertEquals("\n", String.valueOf(jobString.charAt(0)));
+        assertEquals("\n", String.valueOf(jobString.charAt(jobString.length()-1)));
+
+
+    }
+
+    @Test
+    public void testToStringContainsCorrectLabelsAndData(){
+        Job jobF = new Job("Ditch Filler",
+                new Employer("Smooth Lands LLC"),
+                new Location("Parson, IA"),
+                new PositionType("Land Observer"),
+                new CoreCompetency("Hatred of Ditches"));
+        String jobString = jobF.toString();
+        String testString = "\nID: " + jobF.getId() +"\n" +
+                "Name: Ditch Filler\n" +
+                "Employer: Smooth Lands LLC\n" +
+                "Location: Parson, IA\n" +
+                "Position Type: Land Observer\n" +
+                "Core Competency: Hatred of Ditches\n";
+        assertEquals(jobString, testString);
+    }
+
+    @Test
+    public void testToStringHandlesEmptyField(){
+            Job jobF = new Job("Ditch Filler",
+            new Employer(""),
+            new Location("Parson, IA"),
+            new PositionType("Land Observer"),
+            new CoreCompetency("Hatred of Ditches"));
+        String jobString = jobF.toString();
+        String testString = "\nID: " + jobF.getId() +"\n" +
+                "Name: Ditch Filler\n" +
+                "Employer: Data not available\n" +
+                "Location: Parson, IA\n" +
+                "Position Type: Land Observer\n" +
+                "Core Competency: Hatred of Ditches\n";
+        assertEquals(jobString, testString);
+
     }
 }
