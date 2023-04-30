@@ -1,7 +1,13 @@
 package org.launchcode.techjobs.oo.test;
 
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
+import org.launchcode.techjobs.oo.*;
+
+import java.util.Objects;
+
+import static org.junit.Assert.*;
 
 /**
  * Created by LaunchCode
@@ -9,4 +15,53 @@ import org.junit.runners.JUnit4;
 @RunWith(JUnit4.class)
 public class JobTest {
 
+    @Test
+    public void testSettingJobID(){
+        Job jobA = new Job();
+        Job jobB = new Job();
+        assertNotEquals(jobA.getId(), jobB.getId());
+    }
+
+    @Test
+    public void testJobConstructorSetsAllFields(){
+       Job jobC = new Job("Product tester",
+               new Employer("ACME"),
+               new Location("Desert"),
+               new PositionType("Quality control"),
+               new CoreCompetency("Persistence"));
+
+        assertTrue(jobC.getName() instanceof String);
+        assertTrue(jobC.getEmployer() instanceof Employer);
+        assertTrue(jobC.getLocation() instanceof Location);
+        assertTrue(jobC.getPositionType() instanceof PositionType);
+        assertTrue(jobC.getCoreCompetency() instanceof CoreCompetency);
+        assertEquals(jobC.getName(), "Product tester");
+        assertEquals(jobC.getEmployer().getValue(), "ACME");
+        assertEquals(jobC.getLocation().getValue(), "Desert");
+        assertEquals(jobC.getPositionType().getValue(), "Quality control");
+        assertEquals(jobC.getCoreCompetency().getValue(), "Persistence");
+
+    }
+
+    @Test
+    public void testJobsForEquality(){
+        Job jobD = new Job("Ditch Digger",
+                new Employer("The Ditch Company of Omaha"),
+                new Location("Omaha, NE"),
+                new PositionType("Ditch Depth Checker"),
+                new CoreCompetency("Love of Ditches"));
+
+        Job jobE = new Job("Ditch Digger",
+                new Employer("The Ditch Company of Omaha"),
+                new Location("Omaha, NE"),
+                new PositionType("Ditch Depth Checker"),
+                new CoreCompetency("Love of Ditches"));
+
+        assertFalse(jobD.getId() == jobE.getId());
+    }
+
+    @Test
+    public void testToStringStartsAndEndsWithNewLine(){
+        
+    }
 }
