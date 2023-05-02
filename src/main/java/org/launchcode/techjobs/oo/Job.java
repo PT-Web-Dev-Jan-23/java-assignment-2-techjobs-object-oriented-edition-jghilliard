@@ -23,11 +23,11 @@ public class Job {
     }
     public Job(String aName, Employer aEmployer, Location aLocation, PositionType aPositionType, CoreCompetency aCoreCompetency){
         this();
-        this.name = aName;
-        this.employer = aEmployer;
-        this.location =aLocation;
-        this.positionType = aPositionType;
-        this.coreCompetency = aCoreCompetency;
+        name = aName;
+        employer = aEmployer;
+        location =aLocation;
+        positionType = aPositionType;
+        coreCompetency = aCoreCompetency;
     }
 
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
@@ -40,10 +40,17 @@ public class Job {
         return id == that.id;
     }
 
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(name, employer, location, positionType, coreCompetency);
+//    }
+
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, employer, location, positionType, coreCompetency);
+        return Objects.hash(id);
     }
+
+
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
 
@@ -56,40 +63,38 @@ public class Job {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String aName) {name = aName;
     }
 
     public Employer getEmployer() {
         return employer;
     }
 
-    public void setEmployer(Employer employer) {
-        this.employer = employer;
+    public void setEmployer(Employer aEmployer) {
+        employer = aEmployer;
     }
 
     public Location getLocation() {
         return location;
     }
 
-    public void setLocation(Location location) {
-        this.location = location;
+    public void setLocation(Location aLocation) {location = aLocation;
     }
 
     public PositionType getPositionType() {
         return positionType;
     }
 
-    public void setPositionType(PositionType positionType) {
-        this.positionType = positionType;
+    public void setPositionType(PositionType aPositionType) {
+        positionType = aPositionType;
     }
 
     public CoreCompetency getCoreCompetency() {
         return coreCompetency;
     }
 
-    public void setCoreCompetency(CoreCompetency coreCompetency) {
-        this.coreCompetency = coreCompetency;
+    public void setCoreCompetency(CoreCompetency aCoreCompetency) {
+        coreCompetency = aCoreCompetency;
     }
 
 //    ID:  _______

@@ -143,6 +143,8 @@ public class TestTaskTwo extends AbstractTest {
         PositionType anotherPositionType = new PositionType("asdf");
         Method hashCodeMethod = positionTypeClass.getMethod("hashCode");
 
+        //assertEquals(positionType.getId(),anotherPositionType.getId());
+
         try {
             PositionType.class.getDeclaredMethod("hashCode");
         } catch (NoSuchMethodException e) {

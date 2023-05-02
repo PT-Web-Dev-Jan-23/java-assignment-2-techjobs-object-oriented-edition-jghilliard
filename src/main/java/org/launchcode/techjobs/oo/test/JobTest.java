@@ -70,8 +70,8 @@ public class JobTest {
                 new PositionType("Land Observer"),
                 new CoreCompetency("Hatred of Ditches"));
         String jobString = jobF.toString();
-        assertEquals("\n", String.valueOf(jobString.charAt(0)));
-        assertEquals("\n", String.valueOf(jobString.charAt(jobString.length()-1)));
+        assertEquals('\n', jobString.charAt(0));
+        assertEquals('\n', jobString.charAt(jobString.length()-1));
 
 
     }
